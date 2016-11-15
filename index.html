@@ -62,20 +62,28 @@
     <div class="container">
       <div class="jumbotron">
 		<form action="" method="get" id="firstName">
-			First Name: <input type="text" id="fName" maxlength="30">
-		</form>
+			First Name: <input type="text" name="fName" maxlength="30">
+		<br>
 		<form action="" method="get" id="lastName">
-			Last Name: <input type="text" id="lName" maxlength="30">
-		</form>
+			Last Name: <input type="text" name="lName" maxlength="30">
+		<br>
 				<form action="" method="get" id="mail">
-			Email Address: <input type="email" id="email" maxlength="30">
-		</form>
+			Email Address: <input type="email" name="email" maxlength="30">
+		<br>
 				<form action="" method="get" id="birthDate">
-			Date of Birth: <input type="date" id="bDay" maxlength="30">
-		</form>
+			Date of Birth: <input type="date" name="bDay" maxlength="30">
+		<br>
+       <input type="submit" value="Submit">
+	   </form>
+
+<script>
+	var firstName = document.getElementsByName("fName")[0].value;
+	var lastName = document.getElementsByName("lName")[0].value;
+	var eMail = document.getElementsByName("email")[0].value;
+	var birthDate = document.getElementsByName("bDay")[0].value;
 
 
-
+</script>
 
 <!--       <h1>Buzzbold Coding Exam</h1>
         <p>Your output will replace the body of this page.</p>
