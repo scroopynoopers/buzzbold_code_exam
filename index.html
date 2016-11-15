@@ -73,16 +73,53 @@
 				<form action="" method="get" id="birthDate">
 			Date of Birth: <input type="date" name="bDay" maxlength="30">
 		<br>
-       <input type="submit" value="Submit">
+       <input type="submit" id="signup" value="Submit" disabled="disabled" />
 	   </form>
+<script>
+(function() {
+    $('form > input').keyup(function() {
 
+        var empty = false;
+        $('form > input').each(function() {
+            if ($(this).val() == '') {
+                empty = true;
+            }
+        });
+
+        if (empty) {
+            $('#signup').attr('disabled', 'disabled'); 
+        } else {
+            $('#signup').removeAttr('disabled'); 
+        }
+    });
+})()
+</script>
 <script>
 	var firstName = document.getElementsByName("fName")[0].value;
 	var lastName = document.getElementsByName("lName")[0].value;
 	var eMail = document.getElementsByName("email")[0].value;
 	var birthDate = document.getElementsByName("bDay")[0].value;
+</script>
 
-
+<script>
+	$.ajax(
+	{
+		url : "http://dev.buzz.do/code_exam/",
+		type: "POST",
+		data : [{
+				    "email" : "[eMail]",
+				    "first_name" : "[firstName]",
+				    "last_name" : "[lastName]",
+				    "birth_date" : "[birthDate]" 
+				  }]
+		success: function(data, textStatus, jqXHR)
+		{
+			
+		},
+		error: function(jqXHR, textStatus, errorThrown){
+			
+		}
+	});		
 </script>
 
 <!--       <h1>Buzzbold Coding Exam</h1>
